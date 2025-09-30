@@ -55,3 +55,23 @@ This separation ensures clarity while staying within the 10-rule constraint (no 
 
 9. Use a third-party package (e.g., flutter_staggered_grid_view) to build a component in your app.
    - Implemented here: `flutter_staggered_grid_view` powers the services grid in `ServicesView`.
+
+## Second actvity Hands-on Task
+Second Activity
+1. Create a Flutter app that displays three Text widgets in a Row with equal spacing.
+2. Build a layout with two buttons in a Column, centered vertically and horizontally.
+3. Use a Container to add padding, margin, and a background color around a Text widget.
+4. Create a profile card layout with Row (for profile picture + name) and Column (for
+details).
+5. Build a responsive layout using Expanded so that two containers share screen width in
+a Row.
+6. Design a navigation bar using Row with icons spaced evenly.
+7. Create a Stack layout with a background image and a floating button overlay.
+8. Use Flexible inside a Column to resize widgets dynamically when screen orientation
+changes.
+9. Build a chat bubble UI using Container with padding, margin, and rounded borders.
+10. Implement both Row and Column in the same widget tree to form a grid-like layout
+without using GridView.
+
+Note:
+1. Don’t go beyond on the Instructions above
