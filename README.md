@@ -1,4 +1,4 @@
-# CarCare (activity1_1)
+# CarCare
 
 Car Maintenance Service app
 
