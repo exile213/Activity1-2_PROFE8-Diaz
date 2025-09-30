@@ -16,7 +16,7 @@ class TwoButtonRow extends StatelessWidget {
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
               backgroundColor: const Color.fromARGB(255, 16, 141, 2),
-              textStyle: const TextStyle(color: Colors.white),
+              foregroundColor: Colors.white,
             ),
             onPressed: onLeftPressed,
             child: const Text('Book Service'),
@@ -27,7 +27,7 @@ class TwoButtonRow extends StatelessWidget {
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
               backgroundColor: const Color.fromARGB(255, 29, 22, 246),
-              textStyle: const TextStyle(color: Colors.white),
+              foregroundColor: Colors.white,
             ),
             onPressed: onRightPressed,
             child: const Text('View Services'),

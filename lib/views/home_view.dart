@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'services_view.dart';
+import 'profile_view.dart';
 import '../widgets/custom_action_button.dart';
 import '../widgets/three_text_row.dart';
 import '../widgets/two_button_row.dart';
@@ -25,7 +26,8 @@ class _HomeViewState extends State<HomeView> {
         },
       );
     }
-    return const ServicesView();
+    if (_selectedIndex == 1) return const ServicesView();
+    return const ProfileView();
   }
 
   void _onNavTapped(int index) {
@@ -57,6 +59,7 @@ class _HomeViewState extends State<HomeView> {
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
           BottomNavigationBarItem(icon: Icon(Icons.build), label: "Services"),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
         ],
       ),
     );
