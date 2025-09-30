@@ -72,6 +72,3 @@ changes.
 9. Build a chat bubble UI using Container with padding, margin, and rounded borders.
 10. Implement both Row and Column in the same widget tree to form a grid-like layout
 without using GridView.
-
-Note:
-1. Don’t go beyond on the Instructions above
