@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'services_view.dart';
 import '../widgets/custom_action_button.dart';
 import '../widgets/three_text_row.dart';
+import '../widgets/two_centered_buttons.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -121,6 +122,8 @@ class HomePageContent extends StatelessWidget {
 										),
 																	const SizedBox(height: 16),
 									const ThreeTextRow(),
+									const SizedBox(height: 16),
+									const TwoCenteredButtons(),
 										const SizedBox(height: 40),
 										Align(
 											alignment: Alignment.centerLeft,
