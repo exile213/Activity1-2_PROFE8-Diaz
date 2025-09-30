@@ -5,21 +5,33 @@ class ThreeTextRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextStyle style = Theme.of(context)
-            .textTheme
-            .titleMedium
-            ?.copyWith(fontWeight: FontWeight.w700, color: Colors.white, letterSpacing: 0.4) 
-        ?? const TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: Colors.white);
+    final TextStyle style =
+        Theme.of(context).textTheme.titleMedium?.copyWith(
+          fontWeight: FontWeight.w700,
+          color: Colors.white,
+          letterSpacing: 0.4,
+        ) ??
+        const TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.w700,
+          color: Colors.white,
+        );
 
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        Text('Reliable', style: style),
-        Text('Fast', style: style),
-        Text('Affordable', style: style),
-      ],
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 4.0),
+      padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 16.0),
+      decoration: BoxDecoration(
+        color: Colors.white.withOpacity(0.12),
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Text('Reliable', style: style),
+          Text('Fast', style: style),
+          Text('Affordable', style: style),
+        ],
+      ),
     );
   }
 }
-
-
