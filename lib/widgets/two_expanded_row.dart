@@ -21,10 +21,18 @@ class TwoExpandedRow extends StatelessWidget {
                 ),
               ],
             ),
-            child: const Center(
-              child: Text(
-                'Summary A',
-                style: TextStyle(fontWeight: FontWeight.w600),
+            child: const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 12.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.build, size: 18, color: Colors.black54),
+                  SizedBox(width: 8),
+                  Text(
+                    'Total Services: 6',
+                    style: TextStyle(fontWeight: FontWeight.w600),
+                  ),
+                ],
               ),
             ),
           ),
@@ -44,10 +52,18 @@ class TwoExpandedRow extends StatelessWidget {
                 ),
               ],
             ),
-            child: const Center(
-              child: Text(
-                'Summary B',
-                style: TextStyle(fontWeight: FontWeight.w600),
+            child: const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 12.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.history, size: 18, color: Colors.black54),
+                  SizedBox(width: 8),
+                  Text(
+                    'Last Service: Oil Change',
+                    style: TextStyle(fontWeight: FontWeight.w600),
+                  ),
+                ],
               ),
             ),
           ),

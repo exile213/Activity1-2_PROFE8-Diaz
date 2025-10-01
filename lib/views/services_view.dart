@@ -59,7 +59,15 @@ class ServicesView extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               child: Column(
                 children: [
-                  const OilChangeHero(),
+                  OilChangeHero(
+                    onBook: () {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text('Oil change booked (placeholder)'),
+                        ),
+                      );
+                    },
+                  ),
                   const SizedBox(height: 16),
                   const Text(
                     "Available Car Services",
@@ -143,7 +151,40 @@ class ServicesView extends StatelessWidget {
                                           "Select",
                                           style: TextStyle(color: Colors.white),
                                         ),
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          showCupertinoDialog(
+                                            context: context,
+                                            builder: (ctx) => CupertinoAlertDialog(
+                                              title: Text(item.title),
+                                              content: const Text(
+                                                'Proceed with this service?',
+                                              ),
+                                              actions: [
+                                                CupertinoDialogAction(
+                                                  onPressed: () =>
+                                                      Navigator.of(ctx).pop(),
+                                                  child: const Text('Cancel'),
+                                                ),
+                                                CupertinoDialogAction(
+                                                  isDefaultAction: true,
+                                                  onPressed: () {
+                                                    Navigator.of(ctx).pop();
+                                                    ScaffoldMessenger.of(
+                                                      context,
+                                                    ).showSnackBar(
+                                                      SnackBar(
+                                                        content: Text(
+                                                          '${item.title} selected',
+                                                        ),
+                                                      ),
+                                                    );
+                                                  },
+                                                  child: const Text('OK'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
+                                        },
                                       ),
                                     ),
                                 ],
