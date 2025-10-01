@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/profile_card.dart';
+import '../widgets/two_expanded_row.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key});
@@ -30,6 +31,8 @@ class ProfileView extends StatelessWidget {
                     email: 'emil@gmail.com',
                     phone: '09695282766',
                   ),
+                  SizedBox(height: 16),
+                  TwoExpandedRow(),
                 ],
               ),
             ),
