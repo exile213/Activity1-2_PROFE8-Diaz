@@ -48,7 +48,7 @@ This separation ensures clarity while staying within the 10-rule constraint (no 
    - Implemented here: `HomeView` uses `BottomNavigationBar` to switch between the Home content and `ServicesView`.
 
 7. Create a widget tree diagram of your app and explain the hierarchy of parent-child widgets.
-   - Made a diagram on drawio
+   - Made a diagram on drawio , and its present at file structure as widget.drawio.png
 
 8. Refactor a long widget tree into multiple smaller reusable widgets.
    - Implemented here: Extracted `HomePageContent`, `_QuickCard`, and `CustomActionButton` to keep screens readable and reusable.
@@ -59,16 +59,26 @@ This separation ensures clarity while staying within the 10-rule constraint (no 
 ## Second actvity Hands-on Task
 Second Activity
 1. Create a Flutter app that displays three Text widgets in a Row with equal spacing.
+   - Implemented: `lib/widgets/three_text_row.dart` and shown on `HomeView` above Get Started.
 2. Build a layout with two buttons in a Column, centered vertically and horizontally.
+   - Implemented: `lib/widgets/two_button_row.dart` as two columns; placed under Get Started on `HomeView`.
 3. Use a Container to add padding, margin, and a background color around a Text widget.
+   - Implemented: Styled directly in `ThreeTextRow` container.
 4. Create a profile card layout with Row (for profile picture + name) and Column (for
 details).
+   - Implemented: `lib/widgets/profile_card.dart`; used in `ProfileView`.
 5. Build a responsive layout using Expanded so that two containers share screen width in
 a Row.
+   - Implemented: `lib/widgets/two_expanded_row.dart`; used in `ProfileView` under the profile card.
 6. Design a navigation bar using Row with icons spaced evenly.
+   - Implemented: Kept `BottomNavigationBar` as the app’s navigation. A simple Row-based icon bar was prototyped but removed to avoid duplication.
 7. Create a Stack layout with a background image and a floating button overlay.
+   - Implemented: `lib/widgets/oil_change_hero.dart`; shown at top of `ServicesView` with a clickable button.
 8. Use Flexible inside a Column to resize widgets dynamically when screen orientation
 changes.
+   - Implemented: `lib/widgets/flexible_demo_column.dart`; used in `ProfileView`.
 9. Build a chat bubble UI using Container with padding, margin, and rounded borders.
+   - Implemented: `lib/widgets/chat_bubble.dart`; used in full-screen dialog from `ProfileView` via "Message Us".
 10. Implement both Row and Column in the same widget tree to form a grid-like layout
 without using GridView.
+   - Implemented: `lib/widgets/row_column_grid.dart` as "Quick Actions"; used in `ProfileView` under its heading.
