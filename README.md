@@ -1,17 +1,30 @@
-# CarCare
+# CarCare(Activity 1-2)
 
-Car Maintenance Service app
+Car Maintenance Service app for ACTIVITY 1-2
 
 ## Project Structure
 
 ```
 lib/
-  main.dart                        # App entry; sets MaterialApp and theme
+  main.dart                          # App entry; sets MaterialApp and theme
   views/
-    home_view.dart                 # Landing page + bottom navigation container
-    services_view.dart             # Services grid using flutter_staggered_grid_view
+    home_view.dart                   # Home + BottomNavigationBar
+    services_view.dart               # Service list + hero (Stack)
+    profile_view.dart                # Profile card, summaries, quick actions, chat entry
   widgets/
-    custom_action_button.dart      # Single custom button used across screens
+    custom_action_button.dart        # Reusable Material button
+    three_text_row.dart              # 3 texts in a Row (Task 1/3)
+    two_button_row.dart              # Two buttons in a Row (Task 2 variant)
+    two_expanded_row.dart            # Two Expanded containers (Task 5)
+    flexible_demo_column.dart        # Flexible in Column demo (Task 8)
+    oil_change_hero.dart             # Stack hero with image + floating button (Task 7)
+    profile_card.dart                # Profile card (Row + Column) (Task 4)
+    row_column_grid.dart             # Grid-like layout using Row+Column (Task 10)
+    chat_bubble.dart                 # Chat bubble UI (Task 9)
+assets/
+  images/
+    oilchange.jpg                    # Services hero background image
+widget.drawio.png                    # Widget tree diagram
 ```
 
 ### Why I arranged it this way
