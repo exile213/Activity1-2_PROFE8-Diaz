@@ -8,32 +8,38 @@ class TwoButtonRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        SizedBox(
-          width: 160,
-          child: ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: const Color.fromARGB(255, 16, 141, 2),
-              foregroundColor: Colors.white,
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          SizedBox(
+            width: 200,
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color.fromARGB(255, 16, 141, 2),
+                foregroundColor: Colors.white,
+                padding: const EdgeInsets.symmetric(vertical: 12),
+              ),
+              onPressed: onLeftPressed,
+              child: const Text('Book Service'),
             ),
-            onPressed: onLeftPressed,
-            child: const Text('Book Service'),
           ),
-        ),
-        SizedBox(
-          width: 160,
-          child: ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: const Color.fromARGB(255, 29, 22, 246),
-              foregroundColor: Colors.white,
+          const SizedBox(height: 16),
+          SizedBox(
+            width: 200,
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color.fromARGB(255, 29, 22, 246),
+                foregroundColor: Colors.white,
+                padding: const EdgeInsets.symmetric(vertical: 12),
+              ),
+              onPressed: onRightPressed,
+              child: const Text('View Services'),
             ),
-            onPressed: onRightPressed,
-            child: const Text('View Services'),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
