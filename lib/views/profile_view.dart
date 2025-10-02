@@ -10,49 +10,46 @@ class ProfileView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Profile'), centerTitle: true),
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
-            colors: [Color(0xFF5433FF), Color(0xFF20BDFF), Color(0xFFA5FECB)],
-          ),
+    return Container(
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.centerLeft,
+          end: Alignment.centerRight,
+          colors: [Color(0xFF2B5876), Color(0xFF4E4376)],
         ),
-        child: Center(
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 720),
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: const [
-                    SizedBox(height: 16),
-                    ProfileCard(
-                      name: 'Emil Diaz',
-                      email: 'emil@gmail.com',
-                      phone: '09695282766',
+      ),
+      child: Center(
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 720),
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: const [
+                  SizedBox(height: 16),
+                  ProfileCard(
+                    name: 'Emil Diaz',
+                    email: 'emil@gmail.com',
+                    phone: '09695282766',
+                  ),
+                  SizedBox(height: 16),
+                  TwoExpandedRow(),
+                  SizedBox(height: 16),
+                  FlexibleDemoColumn(),
+                  SizedBox(height: 16),
+                  Text(
+                    'Quick Actions',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w700,
+                      color: Colors.white,
                     ),
-                    SizedBox(height: 16),
-                    TwoExpandedRow(),
-                    SizedBox(height: 16),
-                    FlexibleDemoColumn(),
-                    SizedBox(height: 16),
-                    Text(
-                      'Quick Actions',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w700,
-                        color: Colors.white,
-                      ),
-                    ),
-                    SizedBox(height: 8),
-                    RowColumnGrid(),
-                    SizedBox(height: 16),
-                    _MessageUsButton(),
-                  ],
-                ),
+                  ),
+                  SizedBox(height: 8),
+                  RowColumnGrid(),
+                  SizedBox(height: 16),
+                  _MessageUsButton(),
+                ],
               ),
             ),
           ),

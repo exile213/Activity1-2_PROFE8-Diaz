@@ -42,161 +42,157 @@ class ServicesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Service List'), centerTitle: true),
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
-            colors: [Color(0xFF5433FF), Color(0xFF20BDFF), Color(0xFFA5FECB)],
-          ),
+    return Container(
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.centerLeft,
+          end: Alignment.centerRight,
+          colors: [Color(0xFF2B5876), Color(0xFF4E4376)],
         ),
-        child: Center(
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 720),
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                children: [
-                  OilChangeHero(
-                    onBook: () {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                          content: Text('Oil change booked (placeholder)'),
+      ),
+      child: Center(
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 720),
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              children: [
+                OilChangeHero(
+                  onBook: () {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('Oil change booked (placeholder)'),
+                      ),
+                    );
+                  },
+                ),
+                const SizedBox(height: 16),
+                const Text(
+                  "Available Car Services",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+                const SizedBox(height: 20),
+                Expanded(
+                  child: MasonryGridView.count(
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 12,
+                    crossAxisSpacing: 12,
+                    itemCount: _items.length,
+                    itemBuilder: (context, index) {
+                      final item = _items[index];
+                      final Color buttonColor = index % 2 == 0
+                          ? CupertinoColors.activeBlue
+                          : const Color(0xFF1565C0); // Blue 800
+                      return SizedBox(
+                        height: 160,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: item.color,
+                            borderRadius: BorderRadius.circular(16),
+                            boxShadow: const [
+                              BoxShadow(
+                                color: Colors.black12,
+                                blurRadius: 6,
+                                offset: Offset(0, 3),
+                              ),
+                            ],
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Icon(
+                                      item.iconData,
+                                      size: 40,
+                                      color: Colors.blue[700],
+                                    ),
+                                    const SizedBox(height: 10),
+                                    Text(
+                                      item.title,
+                                      style: const TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                      textAlign: TextAlign.center,
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                  ],
+                                ),
+                                if (index % 2 == 0)
+                                  SizedBox(
+                                    width: double.infinity,
+                                    height: 40,
+                                    child: CustomActionButton(
+                                      label: "Select",
+                                      onPressed: () {},
+                                    ),
+                                  )
+                                else
+                                  SizedBox(
+                                    width: double.infinity,
+                                    height: 40,
+                                    child: CupertinoButton(
+                                      padding: EdgeInsets.zero,
+                                      color: buttonColor,
+                                      child: const Text(
+                                        "Select",
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                      onPressed: () {
+                                        showCupertinoDialog(
+                                          context: context,
+                                          builder: (ctx) => CupertinoAlertDialog(
+                                            title: Text(item.title),
+                                            content: const Text(
+                                              'Proceed with this service?',
+                                            ),
+                                            actions: [
+                                              CupertinoDialogAction(
+                                                onPressed: () =>
+                                                    Navigator.of(ctx).pop(),
+                                                child: const Text('Cancel'),
+                                              ),
+                                              CupertinoDialogAction(
+                                                isDefaultAction: true,
+                                                onPressed: () {
+                                                  Navigator.of(ctx).pop();
+                                                  ScaffoldMessenger.of(
+                                                    context,
+                                                  ).showSnackBar(
+                                                    SnackBar(
+                                                      content: Text(
+                                                        '${item.title} selected',
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                                child: const Text('OK'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                  ),
+                              ],
+                            ),
+                          ),
                         ),
                       );
                     },
                   ),
-                  const SizedBox(height: 16),
-                  const Text(
-                    "Available Car Services",
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
-                  const SizedBox(height: 20),
-                  Expanded(
-                    child: MasonryGridView.count(
-                      crossAxisCount: 2,
-                      mainAxisSpacing: 12,
-                      crossAxisSpacing: 12,
-                      itemCount: _items.length,
-                      itemBuilder: (context, index) {
-                        final item = _items[index];
-                        final Color buttonColor = index % 2 == 0
-                            ? CupertinoColors.activeBlue
-                            : const Color(0xFF1565C0); // Blue 800
-                        return SizedBox(
-                          height: 160,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: item.color,
-                              borderRadius: BorderRadius.circular(16),
-                              boxShadow: const [
-                                BoxShadow(
-                                  color: Colors.black12,
-                                  blurRadius: 6,
-                                  offset: Offset(0, 3),
-                                ),
-                              ],
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(16.0),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      Icon(
-                                        item.iconData,
-                                        size: 40,
-                                        color: Colors.blue[700],
-                                      ),
-                                      const SizedBox(height: 10),
-                                      Text(
-                                        item.title,
-                                        style: const TextStyle(
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                        textAlign: TextAlign.center,
-                                        maxLines: 1,
-                                        overflow: TextOverflow.ellipsis,
-                                      ),
-                                    ],
-                                  ),
-                                  if (index % 2 == 0)
-                                    SizedBox(
-                                      width: double.infinity,
-                                      height: 40,
-                                      child: CustomActionButton(
-                                        label: "Select",
-                                        onPressed: () {},
-                                      ),
-                                    )
-                                  else
-                                    SizedBox(
-                                      width: double.infinity,
-                                      height: 40,
-                                      child: CupertinoButton(
-                                        padding: EdgeInsets.zero,
-                                        color: buttonColor,
-                                        child: const Text(
-                                          "Select",
-                                          style: TextStyle(color: Colors.white),
-                                        ),
-                                        onPressed: () {
-                                          showCupertinoDialog(
-                                            context: context,
-                                            builder: (ctx) => CupertinoAlertDialog(
-                                              title: Text(item.title),
-                                              content: const Text(
-                                                'Proceed with this service?',
-                                              ),
-                                              actions: [
-                                                CupertinoDialogAction(
-                                                  onPressed: () =>
-                                                      Navigator.of(ctx).pop(),
-                                                  child: const Text('Cancel'),
-                                                ),
-                                                CupertinoDialogAction(
-                                                  isDefaultAction: true,
-                                                  onPressed: () {
-                                                    Navigator.of(ctx).pop();
-                                                    ScaffoldMessenger.of(
-                                                      context,
-                                                    ).showSnackBar(
-                                                      SnackBar(
-                                                        content: Text(
-                                                          '${item.title} selected',
-                                                        ),
-                                                      ),
-                                                    );
-                                                  },
-                                                  child: const Text('OK'),
-                                                ),
-                                              ],
-                                            ),
-                                          );
-                                        },
-                                      ),
-                                    ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),
